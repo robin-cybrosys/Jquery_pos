@@ -1,0 +1,220 @@
+<!-- 
+  Simple POS System -JQ task
+  Submitted by ROBIN  @ m6
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Experimental JS POS System" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple PoS</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <!-- ICONS -->
+  <link rel="icon" href="nerd.png" type="image/png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="white" />
+
+</head>
+
+<body>
+  <div class="container">
+    <br />
+    <h2 class="main1">POS SYSTEM</h2>
+    <br />
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">ADD PRODUCT</a></li>
+      <li><a data-toggle="tab" href="#menu1">ADD CUSTOMER</a></li>
+      <li><a data-toggle="tab" href="#menu2">INVOICE</a></li>
+    </ul>
+    <!-- 1 -->
+
+    <div class="tab-content ">
+      <div id="home" class="tab-pane fade in active">
+        <div class="main">
+          <div>
+            <div class="col-sm-6">
+              <div class="panel panel-primary">
+                <div class="panel-heading text-white">
+                  Product Information
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="productname"> Product Name </label>
+                    <input type="text" class="form-control" value="Apple" id="productname" />
+                  </div>
+                  <div class="form-group">
+                    <label for="price"> Price (₹) </label>
+                    <input type="number" class="form-control" value="50" id="price" />
+                  </div>
+                  <div class="form-group">
+                    <label for="quantity"> Quantity(kg) </label>
+                    <input type="number" class="form-control" value="5" id="quantity" />
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <button type="button" id="updateButton" class="btn btn-primary text-white"
+                        onclick="productUpdate(); ">
+                        Add
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="col-sm-6"></div>
+          </div>
+          <div>
+            <div class="col-sm-6">
+              <table id="productTable" class="table table-bordered table-condensed table-striped">
+                <thead>
+                  <tr>
+                    <th>Edit</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- 1 -->
+
+      <!-- 2 -->
+      <div id="menu1" class="tab-pane fade">
+        <div class="main">
+          <div>
+            <div class="col-sm-6">
+              <div class="panel panel-primary">
+                <div class="panel-heading">Customer Information</div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="customername"> Name </label>
+                    <input type="text" class="form-control" value="Sagar" id="customername" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email"> E-mail </label>
+                    <input type="email" class="form-control" value="abc@example.com" id="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone"> Phone Number </label>
+                    <input type="tel" class="form-control" value="1234567890" id="phone" />
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <button type="button" id="updateCButton" class="btn btn-primary" onclick="customerUpdate();">
+                        Add
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="col-sm-6">
+              <table id="customerTable" class="table table-bordered table-condensed table-striped">
+                <thead>
+                  <tr>
+                    <th>Edit</th>
+                    <th>Customer Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+
+      <!-- 3 -->
+      <div id="menu2" class="tab-pane fade">
+        <div class="main"></div>
+
+        <div>
+          <div class="row">
+            <div class="col-sm-5">
+
+              <label for="customername">Select Customer </label><br>
+              <select id="names" class="form-control">
+                <option>Aneesh</option>
+                <option>Swaroop</option>
+                <option>Jishnu</option>
+              </select>
+            </div>
+            <div class="col-sm-5">
+              <label for="product">Select Product </label><br>
+              <select id="products" class="form-control" onchange="getval(this);">
+                <option value="40" name="Orange">Orange</option>
+                <option value="60" name="PineApple">PineApple</option>
+              </select>
+            </div>
+            <div class="col-xs-2">
+              <button type="button" id="invButton" class="btn btn-primary" onclick="addInvoice();">
+                Add
+              </button>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="panel-footer">
+        </div>
+        <br>
+        <br>
+        <table id="invoiceTable" class="table table-bordered table-condensed table-striped">
+          <thead>
+            <tr>
+
+
+              <th>Product </th>
+              <th>Quantity (kg)</th>
+              <th>Unit Price</th>
+              <th>Total Price</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+        </table>
+        <div id="totdiv">
+          <label for="totBox"> Net Total : </label><input type="Number" id="totBox" readonly>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- 3 -->
+
+
+</body>
+
+</html>

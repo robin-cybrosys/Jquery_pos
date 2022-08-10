@@ -1,0 +1,86 @@
+body {
+  background-color: rgb(247, 247, 247);
+  color: rgb(0, 0, 53);
+}
+.main1 {
+  margin-top: 25px;
+  margin-left: 5px;
+}
+.main {
+  margin-top: 22px;
+}
+select {
+  outline: 1px;
+  background: rgb(241, 241, 241);
+  height: 35px;
+  width: 350px;
+}
+select:focus,
+select:active {
+  outline: 2px solid rgb(134, 180, 249);
+}
+#invQ {
+  border: none;
+  background: none;
+  width: 100%;
+
+  /* height: 50px; */
+}
+#invButton {
+  width: 80%;
+  height: 40px;
+  margin-top: 19px;
+}
+#invP,
+#invP:focus,
+#invQ,
+#invQ:focus,
+#invT,
+#invT:focus {
+  outline: none;
+  border: none;
+  background: none;
+  width: 100%;
+}
+#invT,
+#invT:focus {
+  outline: none;
+  border: none;
+  background: none;
+  width: 80px;
+  margin-right: 10px;
+}
+#totBox {
+  border: none;
+  background-color: rgba(230, 230, 230, 0.646);
+  width: 150px;
+  height: 50px;
+}
+#totdiv {
+  margin-left: 850px;
+}
+#totBox{
+  text-align: center;
+}
+
+label{
+  font-weight:500;
+}
+table th{
+  color: rgb(0, 1, 26);
+}
+#invoiceTable th:nth-child(1) {
+  width: 250px;
+}
+#invoiceTable th:nth-child(2) {
+  width: 150px;
+}
+#invoiceTable th:nth-child(3) {
+  width: 150px;
+}
+#invoiceTable th:nth-child(4) {
+  width: 200px;
+}
+#invoiceTable th:nth-child(5) {
+  width: 50px;
+}
